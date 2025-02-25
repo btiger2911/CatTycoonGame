@@ -8,10 +8,13 @@ public class MiniGameUI : MonoBehaviour
     [SerializeField] GameObject mixingGamePanel;
 
     private bool isMiniGameActive = false;
+
+  
   
     void Start()
     {
            CloseAllMinigames();
+        
             
     }
 
@@ -33,6 +36,7 @@ public class MiniGameUI : MonoBehaviour
             {
                 case "Chopping":
                     choppingGamePanel.SetActive(true);
+                   
                     break;
                 case "Frying":
                     fryingGamePanel.SetActive(true);
