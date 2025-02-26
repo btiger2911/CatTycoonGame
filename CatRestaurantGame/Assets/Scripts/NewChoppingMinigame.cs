@@ -8,7 +8,7 @@ public class NewChoppingMinigame : MonoBehaviour
     [SerializeField] private Slider progressBar;
      private MiniGameUI miniGameUI;
 
-    private bool isDragging = false;
+   
     private float lastSliderValue;
 
     private int[] chopAmounts = { 4, 5, 6, 7, 8 };
@@ -20,11 +20,14 @@ public class NewChoppingMinigame : MonoBehaviour
 
     private bool reachedTop = false;
 
+    private GameInput gameInput;
+
 
     private void Start()
     {
 
         miniGameUI = FindAnyObjectByType<MiniGameUI>();
+        gameInput = FindAnyObjectByType<GameInput>();
         ResetMiniGame();
     }
 
@@ -35,49 +38,38 @@ public class NewChoppingMinigame : MonoBehaviour
 
     private void Update()
     {
-        HandleMouseDrag();
+        HandleDrag();
 
        
     }
 
-    void HandleMouseDrag()
+    void HandleDrag()
     {
-        if (Input.GetMouseButton(0))
-        {
-            isDragging = true;
-        } else
-        {
-            isDragging = false;
-        }
+        float dragValue = gameInput.GetDragInput();
 
+        if (dragValue == 0f) return;
 
-        if (isDragging)
-        {
-            float mouseY = Input.GetAxis("Mouse Y");
-            knifeSlice.value += mouseY * .05f;
+        
+            knifeSlice.value += dragValue * .025f;
 
-            if (knifeSlice.value >= 0.9f)
+            if(knifeSlice.value >= .9f)
             {
                 reachedTop = true;
             }
 
-            if (reachedTop && knifeSlice.value <= .1f)
+            if(reachedTop && knifeSlice.value <= .1f)
             {
                 chopsDone++;
                 progressBar.value = chopsDone;
                 reachedTop = false;
-
 
                 if (chopsDone >= requiredChops)
                 {
                     miniGameUI.CloseAllMinigames();
                 }
             }
-            lastSliderValue = knifeSlice.value;
-        }
-
-      
-      
+        
+        lastSliderValue = knifeSlice.value;
         
     }
 
