@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3812876574508226176}
   - component: {fileID: 3875018607888405895}
   - component: {fileID: 168113287783242300}
+  - component: {fileID: 8087414338701837489}
+  - component: {fileID: 7862035538613289472}
   m_Layer: 0
   m_Name: Cabbage_Visual
   m_TagString: Untagged
@@ -46,6 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c35db4ff3934544be4cfbb5a9cab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPromptKeyboard: {fileID: 0}
+  interactionPromptGamePad: {fileID: 0}
   itemName: Cabbage
   itemQuantity: 1
   sprite: {fileID: 21300000, guid: e1c23b5aded59d84da30738d3267a6c9, type: 3}
@@ -64,12 +68,62 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6235056, y: 0.3815471, z: 0.5017233}
+  m_Center: {x: -0.002538681, y: 0.24408615, z: -0.03637886}
+--- !u!54 &8087414338701837489
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812876574508226177}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &7862035538613289472
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812876574508226177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.21019304
+  m_Height: 0.47684145
+  m_Direction: 1
+  m_Center: {x: 0.015598059, y: 0.26157928, z: 0.05735767}
 --- !u!1001 &7790586617283749605
 PrefabInstance:
   m_ObjectHideFlags: 0

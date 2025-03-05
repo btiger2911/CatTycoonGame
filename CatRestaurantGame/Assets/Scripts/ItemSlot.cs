@@ -9,7 +9,7 @@ public class ItemSlot : MonoBehaviour
     public int itemQuantity;
     public Sprite itemSprite;
     public bool isFull;
-
+   
 
     [SerializeField] private int maxNumberOfItems;
 
