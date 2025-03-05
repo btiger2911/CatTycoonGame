@@ -49,6 +49,43 @@ public class ItemSlot : MonoBehaviour
 
     }
 
+    private void EmptySlot()
+    {
+        quantityText.enabled = false;
+        
+
+    }
+
+
+    public void OnRightClick()
+    {
+        GameObject itemToDrop = new GameObject(itemName);
+
+        Item newItem = itemToDrop.AddComponent<Item>();
+
+        newItem.itemQuantity = 1;
+        newItem.itemName = itemName;
+        newItem.sprite = itemSprite;
+
+        SpriteRenderer sr = itemToDrop.AddComponent<SpriteRenderer>();
+        sr.sprite = itemSprite;
+        sr.sortingOrder = 5;
+        sr.sortingLayerName = "Ground";
+
+        itemToDrop.AddComponent<BoxCollider>();
+
+
+        itemToDrop.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(.5f,0,0);
+        itemToDrop.transform.localScale = new Vector3(.5f, .5f, .5f);
+
+        this.itemQuantity -= 1;
+        quantityText.text = this.itemQuantity.ToString();
+        if(this.itemQuantity <= 0)
+        {
+            EmptySlot();
+        }
+    }
+
 
    
 }

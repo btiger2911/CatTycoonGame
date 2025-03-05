@@ -9,11 +9,11 @@ public class Item : MonoBehaviour
     [SerializeField] GameObject interactionPromptKeyboard;
     [SerializeField] GameObject interactionPromptGamePad;
 
-    [SerializeField] private string itemName;
+    public string itemName;
 
-    [SerializeField] private int itemQuantity;
+   public int itemQuantity;
 
-    [SerializeField] private Sprite sprite;
+    public Sprite sprite;
 
     private Inventory inventoryManager;
 
